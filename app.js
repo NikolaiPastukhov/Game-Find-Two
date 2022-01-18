@@ -4,8 +4,6 @@ let firstCard;
 let secondCard;
 let hasFlippedCard = false;
 
-
-
 function flipCard() {
     this.classList.add('card-flipped')
     let cardFlipped = document.querySelectorAll('.card-flipped')
@@ -20,14 +18,11 @@ function flipCard() {
         hasFlippedCard = true;
         firstCard = this
         return;
-    }
+    }    
     secondCard = this;
 
     checkMatch();
-
-
 }
-
 
 function checkMatch() {
     if (firstCard.dataset.cardColor === secondCard.dataset.cardColor) {
@@ -43,7 +38,6 @@ function unflipCards() {
         secondCard.classList.remove('card-flipped');
         resetBoard();
     }, 1000);
-
 }
 
 function disableCards() {
@@ -64,11 +58,8 @@ function shuffle() {
         item.addEventListener('click', flipCard);
 
         setTimeout(() => item.style.order = Math.floor(Math.random() * 16), 1000)
-
     });
 }
-
-
 
 card.forEach(item => item.addEventListener('click', flipCard, ));
 playAgain.addEventListener('click', () => {
